@@ -1,14 +1,17 @@
 import { prisma } from '../../../shared/infra/prisma'
 import bcrypt from 'bcryptjs' //Serve para criptografia de senhas
 
+interface IUserRequest {
+    name: string,
+    email: string,
+    password: string
+}
+
 export class CreateUserService {
     constructor() {
         
     }
-    async execute(data: any) {
-        const { name, email, password } = data;
-
-
+    async execute( {name, email, password}: IUserRequest) {
         //Verificação de duplicidade de emails 
         const userExists = await prisma.user.findUnique({ // Procura um email exatamente igual no banco de dados, se estiver cria o userExists
             where: { email } // Foi usado o await pois assim o codigo só continua se o banco de dados devolver a informação que foi pedida
