@@ -9,6 +9,6 @@ export default defineConfig({
   },
   
   datasource: {
-    url: "file:../../../../dev.db", // Ajuste para o banco ficar na raiz ou use caminho absoluto
+    url: "file:./dev.db", // Ajuste para o banco ficar na raiz ou use caminho absoluto
   },
 });

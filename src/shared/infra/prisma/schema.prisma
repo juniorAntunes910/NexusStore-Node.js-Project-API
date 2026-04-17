@@ -8,7 +8,7 @@ generator client {
 }
 
 datasource db {
-  provider = "sqlite" 
+  provider = "sqlite"
 }
 
 
@@ -32,7 +32,7 @@ model Product {
   id           String     @id @default(uuid())
   name         String
   description  String 
-  price        Float    
+  price        Decimal   
   stock        Int        @default(0)
   category     String     
   createdAt    DateTime   @default(now())
